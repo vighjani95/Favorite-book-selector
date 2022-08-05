@@ -1,0 +1,74 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue learning</title>
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+    <style>
+        body {
+            background: #eee;
+            max-width: 960px;
+            margin: 20px auto;
+        }
+
+        .header{
+            color: rgb(156,62,62);
+            font-size: large;
+            font-weight: bold;
+        }
+
+        p, h3, ul{
+            margin: 0;
+            padding: 0;
+        }
+
+        li{
+            list-style-type: none;
+            background: #fff;
+            margin: 20px auto;
+            padding: 10px 20px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .fav{
+            background: rgb(156, 62, 62);
+            color: white
+            
+        }
+
+        img {
+            max-width: 12%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Helló Vue :)</h1>
+    <p class="header">Válassza ki kedvenc könyvét 1 klikkel :)</p>
+
+    <div id="app">
+        <a href=""></a>
+
+        <div v-if="showBooks">
+            <ul>
+                <li v-for="book in books" :class="{ fav: book.isFav}" @click="toggleFav(book)">
+                    <img :src="book.img" :alt="book.title">
+                    <h3>{{ book.title }}</h3>
+                    <p>{{ book.author }}</p>
+                </li>
+            </ul>
+        </div>
+
+        <button @click="toggleShowBooks">
+            <span v-if="showBooks">Haide Books</span>
+            <span v-else>Show Books</span>
+        </button>
+
+
+    </div>
+    <script src="app_2feladat.js"></script>
+</body>
+</html>
